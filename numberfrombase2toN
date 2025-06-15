@@ -1,0 +1,29 @@
+#include<stdio.h>
+void convertoBase(int num, int base)
+{
+    char digits[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char results[64];
+    int i=0;
+    
+    if(num==0)
+    {
+        printf("0\n");
+        return;
+    }
+    while(num>0)
+    {
+        int remaindr = num%base;
+        results[i++] = digits[remaindr];
+        num/= base;
+    }
+    for(int j=i-1;j>=0;j--)
+    {
+        printf("%c",results[j]);
+    }
+}
+int main()
+{
+    int num =77;
+    int base = 2;
+    convertoBase(num,base);
+}
